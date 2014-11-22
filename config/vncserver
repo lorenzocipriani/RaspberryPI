@@ -20,7 +20,8 @@ case "$1" in
  start)
   echo "Starting VNC Server"
   #Insert your favoured settings for a VNC session
-  /usr/bin/vncserver :0 -geometry 1920x1080 -randr 1920x1080,1680x1050,1400x1050,1280x1024,1280x960,1024x768 -depth 16 -dpi 96 -pixelformat rgb565
+  # TODO: -randr 1920x1080,1680x1050,1400x1050,1280x1024,1280x960,1024x768 
+  /usr/bin/vncserver :0 -geometry 1680x1050 -depth 16 -dpi 96 -pixelformat rgb565
   ;;
 
  stop)
