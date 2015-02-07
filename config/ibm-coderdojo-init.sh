@@ -1,26 +1,32 @@
 #!/bin/bash
 
-sudo apt-get -y update
+echo -e "Run the script as root"
+sudo su -
 
-sudo apt-get -y upgrade
+echo -e "\n\nUpdate the system to latest package releases"
+apt-get -y update
+apt-get -y upgrade
 
 # TODO: config /etc/networks/interfaces
 
-echo -e "Install text editors"
-sudo apt-get -y install vim
+echo -e "\n\nInstall text editors"
+apt-get -y install vim
 
-sudo apt-get -y install tightvncserver
+echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
+apt-get -y install tightvncserver
+apt-get -y install xrdp
 
-sudo apt-get -y install xrdp
-
-echo -e "Install development tools"
-sudo apt-get -y install -t stable subversion subversion-tools
-sudo apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
-sudo apt-get -y install -t stable geany
-sudo apt-get -y install -t stable diffuse
-
-sudo su -
 wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/vncserver 
 chmod ugo+x /etc/init.d/vncserver
 update-rc.d vncserver defaults
+
+echo -e "\n\nInstall development tools"
+apt-get -y install -t stable subversion subversion-tools
+apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
+apt-get -y install -t stable geany
+apt-get -y install -t stable diffuse
+
+
+
+echo -e "\n\n"
 exit
