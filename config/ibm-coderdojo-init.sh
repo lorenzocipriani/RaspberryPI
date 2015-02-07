@@ -16,7 +16,7 @@ echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
 apt-get -y install tightvncserver
 apt-get -y install xrdp
 
-wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/vncserver 
+wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/init.d/vncserver 
 chmod ugo+x /etc/init.d/vncserver
 update-rc.d vncserver defaults
 
@@ -26,7 +26,6 @@ apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
 apt-get -y install -t stable geany
 apt-get -y install -t stable diffuse
 
-
-
-echo -e "\n\n"
+echo -e "\n\nLeave the root session"
 exit
+return 0
