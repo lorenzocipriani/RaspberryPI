@@ -19,6 +19,8 @@ apt-get -y purge tightvncserver
 apt-get -y purge xrdp
 
 apt-get -y install tightvncserver
+mkdir /etc/vncserver
+wget -O /etc/vncserver/vncserver.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/vncserver/vncserver.conf
 wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/init.d/vncserver 
 chmod ugo+x /etc/init.d/vncserver
 update-rc.d vncserver defaults
