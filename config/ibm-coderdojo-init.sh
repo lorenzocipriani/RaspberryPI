@@ -5,7 +5,7 @@ sudo su -
 
 echo -e "\n\nUpdate the system to latest package releases"
 apt-get -y update
-apt-get -y upgrade
+apt-get -y dist-upgrade
 
 # TODO: config /etc/networks/interfaces
 
