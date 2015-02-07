@@ -15,9 +15,6 @@ apt-get -y install vim vim-doc vim-scripts
 apt-get -y install vlc 
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
-apt-get -y purge tightvncserver
-apt-get -y purge xrdp
-
 apt-get -y install tightvncserver
 mkdir /etc/vncserver
 wget -O /etc/vncserver/vncserver.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/vncserver/vncserver.conf
