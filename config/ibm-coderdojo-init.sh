@@ -43,6 +43,9 @@ apt-get -y install -t stable diffuse
 echo -e "\n\nRestart the network"
 service networking restart
 
+echo -e "\n\nClean the package repository"
+apt-get clean
+
 echo -e "\n\nLeave the root session"
 exit
 
