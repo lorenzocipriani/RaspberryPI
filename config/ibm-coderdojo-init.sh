@@ -52,3 +52,5 @@ then
   mkdir ~/.vnc
 fi
 echo "coderdojo1" | vncpasswd -f > ~/.vnc/passwd
+
+wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-projects.sh | /bin/bash
