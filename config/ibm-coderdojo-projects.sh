@@ -27,4 +27,4 @@ if [ ! -d "${PROJECTS}/motionsensor_hc-sr501" ]
 then
   mkdir -p $PROJECTS/motionsensor_hc-sr501
 fi
-wget -O $PROJECTS/motion_sensor.py $GITHUB_HOME/master/projects/motionsensor_hc-sr501/motion_sensor.py
+wget -O $PROJECTS/motionsensor_hc-sr501/motion_sensor.py $GITHUB_HOME/master/projects/motionsensor_hc-sr501/motion_sensor.py
