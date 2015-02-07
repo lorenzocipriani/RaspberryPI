@@ -7,7 +7,7 @@ echo -e "\n\nConfigure the nework"
 wget -O /etc/network/interfaces https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/network/interfaces
 
 echo -e "\n\nUpdate the system to latest package releases"
-apt-get -y update
+#apt-get -y update
 #apt-get -y dist-upgrade
 
 echo -e "\n\nInstall misc tools"
