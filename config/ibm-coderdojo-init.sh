@@ -33,4 +33,3 @@ service networking restart
 
 echo -e "\n\nLeave the root session"
 exit
-return 0
