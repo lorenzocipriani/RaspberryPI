@@ -8,10 +8,8 @@
 # Description: Start VNC Server at boot time.
 ### END INIT INFO
 
-#! /bin/sh
-# /etc/init.d/vncserver
-
 #!/bin/bash
+# /etc/init.d/vncserver
 
 unset VNCSERVERARGS
 VNCSERVERS=""
