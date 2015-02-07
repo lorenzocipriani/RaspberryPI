@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECTS="~/projects"
+PROJECTS=~/projects
 GITHUB_HOME="https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI"
 
 echo -e "\n\nInstall PicoBorg Reverse"
