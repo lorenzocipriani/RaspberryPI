@@ -12,7 +12,7 @@ echo -e "\n\nUpdate the system to latest package releases"
 
 echo -e "\n\nInstall misc tools"
 apt-get -y install vim vim-doc vim-scripts
-apt-get -y vlc 
+apt-get -y install vlc 
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
 apt-get -y purge tightvncserver
