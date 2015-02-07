@@ -54,4 +54,4 @@ if [ ! -d "~/.vnc" ]
 then
   mkdir ~/.vnc
 fi
-"coderdojo1" | vncpasswd -f > ~/.vnc/passwd
+echo "coderdojo1" | vncpasswd -f > ~/.vnc/passwd
