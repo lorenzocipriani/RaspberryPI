@@ -23,6 +23,8 @@ wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/
 chmod ugo+x /etc/init.d/vncserver
 update-rc.d vncserver defaults
 
+"coderdojo1" | vncpasswd -f > ~/.vnc/passwd
+
 apt-get -y install xrdp
 
 
@@ -37,3 +39,6 @@ service networking restart
 
 echo -e "\n\nLeave the root session"
 exit
+
+echo -e "\n\nConfigure the pi password for VNC"
+"coderdojo1" | vncpasswd -f > ~/.vnc/passwd
