@@ -12,7 +12,11 @@ echo -e "\n\nUpdate the system to latest package releases"
 
 echo -e "\n\nInstall misc tools"
 apt-get -y install vim vim-doc vim-scripts
-apt-get -y install vlc 
+apt-get -y install vlc
+
+echo -e "\n\nInstall Python pip"
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
 apt-get -y install tightvncserver
