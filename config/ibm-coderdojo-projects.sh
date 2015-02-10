@@ -3,6 +3,16 @@
 PROJECTS=~/projects
 GITHUB_HOME="https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI"
 
+echo -e "\n\nInstall RPi.GPIO library"
+if [ ! -d "${PROJECTS}/gpio"]
+then
+  mkdir -p ${PROJECTS}/gpio
+fi
+cd ${PROJECTS}/gpio
+wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.5.9.tar.gz
+
+cd ~
+
 echo -e "\n\nInstall PicoBorg Reverse"
 if [ ! -d "${PROJECTS}/picoborgrev" ]
 then
