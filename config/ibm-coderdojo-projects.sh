@@ -10,6 +10,7 @@ then
 fi
 cd ${PROJECTS}/gpio
 wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.5.9.tar.gz
+cd RPi.GPIO-0.5.9
 
 cd ~
 
