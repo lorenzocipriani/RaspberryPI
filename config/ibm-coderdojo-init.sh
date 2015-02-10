@@ -14,9 +14,8 @@ echo -e "\n\nInstall misc tools"
 apt-get -y install vim vim-doc vim-scripts
 apt-get -y install vlc
 
-echo -e "\n\nInstall Python pip"
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
+echo -e "\n\nInstall Python libraries"
+apt-get -y install python-picamera python-picamera-docs python-rpi.gpio
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
 apt-get -y install tightvncserver
