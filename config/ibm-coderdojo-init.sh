@@ -10,6 +10,9 @@ echo -e "\n\nUpdate the system to latest package releases"
 #apt-get -y update
 #apt-get -y dist-upgrade
 
+echo -e "\n\nInstall small network infrastructure: DNS, DHCP, Router Advertisement and Network Boot"
+apt-get -y install dnsmasq
+
 echo -e "\n\nInstall misc tools"
 apt-get -y install vim vim-doc vim-scripts
 apt-get -y install vlc
@@ -19,7 +22,10 @@ apt-get -y install python-picamera python-picamera-docs python-rpi.gpio
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
 apt-get -y install tightvncserver
-mkdir /etc/vncserver
+if [ ! -d "/etc/vncserver" ]
+then
+  mkdir /etc/vncserver
+fi
 wget -O /etc/vncserver/vncserver.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/vncserver/vncserver.conf
 wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/init.d/vncserver 
 chmod ugo+x /etc/init.d/vncserver
