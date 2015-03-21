@@ -3,6 +3,7 @@
 echo -e "Run the script as root"
 sudo su -
 if [ ! -f "/root/ibm-coderdojo-init.sh" ]
+then
   echo "wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-init.sh | /bin/bash" > /root/ibm-coderdojo-init.sh
   chmod ug+x /root/ibm-coderdojo-init.sh
 fi
@@ -13,6 +14,7 @@ echo "pi:raspberry" | chpasswd
 echo -e "\n\nConfigure the network"
 wget -O /etc/network/interfaces https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/network/interfaces
 if [ ! -f "/etc/ssh/sshd_config.orig" ]
+then
   cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
 fi
 sed \
@@ -31,6 +33,7 @@ echo -e "\n\nInstall small network infrastructure: DNS, DHCP, Router Advertiseme
 apt-get -y install dnsmasq
 wget -O /etc/dnsmasq.d/coderdojo.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/dnsmasq.d/coderdojo.conf
 if [ ! -f "/etc/dnsmasq.conf.orig" ]
+then
   cp /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 fi
 sed \
