@@ -1,4 +1,6 @@
 auto lo eth0 eth0:1
+allow-auto lo eth0 eth0:1
+allow-hotplug eth0 eth0:1
 
 iface lo inet loopback
 
@@ -7,4 +9,3 @@ iface eth0 inet dhcp
 iface eth0:1 inet static
   address 192.168.192.168
   netmask 255.255.255.0
-#  gateway 192.168.192.192
