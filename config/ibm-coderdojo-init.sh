@@ -41,49 +41,49 @@ sed \
   /etc/dnsmasq.conf.orig > /etc/dnsmasq.conf
 
 echo -e "\n\nInstall misc tools"
-apt-get -y install vim vim-doc vim-scripts
-apt-get -y install vlc
+#apt-get -y install vim vim-doc vim-scripts
+#apt-get -y install vlc
 
 echo -e "\n\nInstall Python libraries"
-apt-get -y install python-picamera python-picamera-docs python-rpi.gpio
+#apt-get -y install python-picamera python-picamera-docs python-rpi.gpio
 
 echo -e "\n\nInstall remote desktop (VNC and RDP) servers"
-apt-get -y install tightvncserver
-if [ ! -d "/etc/vncserver" ]
-then
-  mkdir /etc/vncserver
-fi
-wget -O /etc/vncserver/vncserver.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/vncserver/vncserver.conf
-wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/init.d/vncserver 
-chmod ugo+x /etc/init.d/vncserver
-update-rc.d vncserver defaults
+#apt-get -y install tightvncserver
+#if [ ! -d "/etc/vncserver" ]
+#then
+#  mkdir /etc/vncserver
+#fi
+#wget -O /etc/vncserver/vncserver.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/vncserver/vncserver.conf
+#wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/init.d/vncserver 
+#chmod ugo+x /etc/init.d/vncserver
+#update-rc.d vncserver defaults
 
 echo -e "\n\nConfigure the root password for VNC"
-if [ ! -d "/root/.vnc" ]
-then
-  mkdir /root/.vnc
-fi
-echo "coderdojo1" | vncpasswd -f > /root/.vnc/passwd
+#if [ ! -d "/root/.vnc" ]
+#then
+#  mkdir /root/.vnc
+#fi
+#echo "coderdojo1" | vncpasswd -f > /root/.vnc/passwd
 
 echo -e "\n\nConfigure the pi password for VNC"
-if [ ! -d "/home/pi/.vnc" ]
-then
-  mkdir /home/pi/.vnc
-fi
-echo "coderdojo1" | vncpasswd -f > /home/pi/.vnc/passwd
+#if [ ! -d "/home/pi/.vnc" ]
+#then
+#  mkdir /home/pi/.vnc
+#fi
+#echo "coderdojo1" | vncpasswd -f > /home/pi/.vnc/passwd
 
-apt-get -y install xrdp
+#apt-get -y install xrdp
 
 echo -e "\n\nInstall development tools"
-apt-get -y install -t stable subversion subversion-tools
-apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
+#apt-get -y install -t stable subversion subversion-tools
+#apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
 apt-get -y install -t stable geany
 apt-get -y install -t stable diffuse
 
 echo -e "\n\nClean the package repository"
 apt-get clean
 
-wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-projects.sh | /bin/bash
+#wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-projects.sh | /bin/bash
 
 echo -e "\n\nRestart the network"
 #service networking restart
