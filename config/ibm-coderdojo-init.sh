@@ -58,14 +58,21 @@ wget -O /etc/init.d/vncserver https://raw.githubusercontent.com/lorenzocipriani/
 chmod ugo+x /etc/init.d/vncserver
 update-rc.d vncserver defaults
 
-if [ ! -d "~/.vnc" ]
+echo -e "\n\nConfigure the root password for VNC"
+if [ ! -d "/root/.vnc" ]
 then
-  mkdir ~/.vnc
+  mkdir /root/.vnc
 fi
-echo "coderdojo1" | vncpasswd -f > ~/.vnc/passwd
+echo "coderdojo1" | vncpasswd -f > /root/.vnc/passwd
+
+echo -e "\n\nConfigure the pi password for VNC"
+if [ ! -d "/home/pi/.vnc" ]
+then
+  mkdir /home/pi/.vnc
+fi
+echo "coderdojo1" | vncpasswd -f > /home/pi/.vnc/passwd
 
 apt-get -y install xrdp
-
 
 echo -e "\n\nInstall development tools"
 apt-get -y install -t stable subversion subversion-tools
@@ -73,20 +80,13 @@ apt-get -y install -t stable git git-doc git-cvs git-svn git-gui
 apt-get -y install -t stable geany
 apt-get -y install -t stable diffuse
 
-echo -e "\n\nRestart the network"
-service networking restart
-
 echo -e "\n\nClean the package repository"
 apt-get clean
 
-echo -e "\n\nLeave the root session"
-exit
-
-echo -e "\n\nConfigure the pi password for VNC"
-if [ ! -d "~/.vnc" ]
-then
-  mkdir ~/.vnc
-fi
-echo "coderdojo1" | vncpasswd -f > ~/.vnc/passwd
-
 wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-projects.sh | /bin/bash
+
+echo -e "\n\nRestart the network"
+#service networking restart
+
+echo -e "\n\nLeave the root session"
+#exit
