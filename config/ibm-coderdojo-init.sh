@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo -e "Run the script as root"
-sudo su -
+#sudo su -
 if [ ! -f "/root/ibm-coderdojo-init.sh" ]
 then
-#  echo "wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-init.sh | /bin/bash" > /root/ibm-coderdojo-init.sh
-#  chmod ug+x /root/ibm-coderdojo-init.sh
+  echo "wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-init.sh | /bin/bash" > /root/ibm-coderdojo-init.sh
+  chmod ug+x /root/ibm-coderdojo-init.sh
 fi
 
 echo -e "Configure pi default password"
