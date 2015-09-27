@@ -26,8 +26,9 @@ sed \
   /etc/ssh/sshd_config.orig > /etc/ssh/sshd_config
 
 echo -e "\n\nUpdate the system to latest package releases"
-#apt-get -y update
+apt-get -y update
 #apt-get -y dist-upgrade
+apt-get -y upgrade
 
 echo -e "\n\nInstall small network infrastructure: DNS, DHCP, Router Advertisement and Network Boot"
 apt-get -y install dnsmasq
