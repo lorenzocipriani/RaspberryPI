@@ -1,37 +1,41 @@
 #!/bin/bash
 
-echo -e "Run the script as root"
+echo "Run the script as root"
 #sudo su -
 if [ ! -f "/root/ibm-coderdojo-init.sh" ]
 then
   echo "wget --no-check-certificate -O - https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/config/ibm-coderdojo-init.sh | /bin/bash" > /root/ibm-coderdojo-init.sh
-  chmod ug+x /root/ibm-coderdojo-init.sh
+  sudo chmod ug+x /root/ibm-coderdojo-init.sh
 fi
 
-echo -e "Configure pi default password"
-echo "pi:raspberry" | chpasswd
+echo "Configure pi default password"
+sudo bash -c 'echo "pi:raspberry" | chpasswd'
 
-echo -e "\n\nConfigure the network"
-wget -O /etc/network/interfaces https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/network/interfaces
-if [ ! -f "/etc/ssh/sshd_config.orig" ]
+echo "nConfigure the network"
+sudo wget -O /etc/network/interfaces https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/network/interfaces
+
+echo "Configure ssh daemon"
+if [ -f "/etc/ssh/sshd_config" ]
 then
-  cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+  sudo sed -i \
+    -e "s|#X11Forwarding|X11Forwarding/|" \
+    -e "s|X11Forwarding no|X11Forwarding yes/|" \
+    -e "s|#X11DisplayOffset|X11DisplayOffset/|" \
+    -e "s|#TCPKeepAlive|TCPKeepAlive/|" \
+    -e "s|TCPKeepAlive no|TCPKeepAlive yes/|" \
+    > /etc/ssh/sshd_config
 fi
-sed \
-  -e "s|#X11Forwarding|X11Forwarding/|" \
-  -e "s|X11Forwarding no|X11Forwarding yes/|" \
-  -e "s|#X11DisplayOffset|X11DisplayOffset/|" \
-  -e "s|#TCPKeepAlive|TCPKeepAlive/|" \
-  -e "s|TCPKeepAlive no|TCPKeepAlive yes/|" \
-  /etc/ssh/sshd_config.orig > /etc/ssh/sshd_config
 
-echo -e "\n\nUpdate the system to latest package releases"
-apt-get -y update
-#apt-get -y dist-upgrade
-apt-get -y upgrade
+echo "Update the system to latest package releases"
+sudo apt-get -y update
+#sudo apt-get -y dist-upgrade
+sudo apt-get -y upgrade
 
-echo -e "\n\nInstall small network infrastructure: DNS, DHCP, Router Advertisement and Network Boot"
-apt-get -y install dnsmasq
+echo "Install camera module"
+sudo apt-get -y install gpac
+
+echo "Install small network infrastructure: Access Point Manager, DNS, DHCP, Router Advertisement and Network Boot"
+apt-get -y install hostapd dnsmasq avahi-daemon
 wget -O /etc/dnsmasq.d/coderdojo.conf https://raw.githubusercontent.com/lorenzocipriani/RaspberryPI/master/etc/dnsmasq.d/coderdojo.conf
 if [ ! -f "/etc/dnsmasq.conf.orig" ]
 then
