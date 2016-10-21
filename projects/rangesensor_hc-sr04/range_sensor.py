@@ -3,6 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BCM)
  
+# Please review
 TRIG = 23
 ECHO = 24
  
